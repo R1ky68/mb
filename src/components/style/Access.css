@@ -1,0 +1,13 @@
+
+.banner {
+    margin: 0.5rem;
+    border: green 1px solid;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    background-color: rgb(117, 177, 117);
+}
+
+.show-banner {
+    display: none;
+}

@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    font-family: 'Nunito', sans-serif;
+    color: black;
+}
+
+input {
+    margin: 2px;
+}
+
+#riepilogo-tabella {
+    margin-top: 35px;
+    padding: 20px 60px;
+    border: 2px solid black
+}
+
+.riepilogo h3, .riepilogo p {
+    text-align: center;
+    padding: 5px;
+}
+
+/* p {
+    font-size: 20px;
+    font-weight: bold;
+} */
+
+@media only screen and (max-width: 600px) {
+
+    .punta, .banca {
+        display: block;
+    }
+
+    .riepilogo div {
+        padding: 1rem 2.7rem;
+    }
+
+    .tabella-profitti, hr {
+        width: 0;
+        visibility: hidden;
+    }
 }

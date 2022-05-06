@@ -1,0 +1,149 @@
+* {
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-list a, #logo a, .dropdown-container button {
+    margin: 1rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.28s ease;
+}
+
+a:hover, #logo a:hover, .dropdown-container button:hover {
+    color:rgb(0, 148, 62)
+}
+
+.dropdown-container button {
+    background: none;
+    text-decoration: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 14.2px;
+    letter-spacing: 0.6px;
+    margin: auto 11px;
+}
+
+.dropdown-container:hover .dropdown-menu, .dropdown-menu:hover {
+    display: flex;
+    z-index: 1;
+}
+
+.dropdown-menu {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(22, 255, 111, 0.301);
+    list-style: none;
+    border-radius: 5px;
+}
+
+.dropdown-menu li:hover {
+    background-color: rgba(212, 255, 244, 0.822);
+}
+
+.dropdown-menu li {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.show-dropdownmenu {
+    display: none;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div{
+    display: flex;
+    background-color: white;
+    margin: 5px 1px;
+    width: 25px;
+    height: 2px;
+}
+
+@media only screen and (max-width: 500px) {
+    * {
+        overflow-x: visible;
+    }
+
+    header {
+        max-height: 20px;
+    }
+
+    .burger{
+        padding: 0.5rem;
+        border-radius: 100%;
+        display: inline;
+        cursor: pointer;
+        transition: all ease-out 0.2s;
+    }
+
+    .burger div {
+        background-color: black;
+    }
+
+    .burger:active {
+        background-color: grey;
+    }
+
+    .nav-list {
+        position: fixed;
+        background-color: white;
+        top: 4rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform ease-in 0.1s;
+    }
+
+    .show {
+        transform: translateX(0%);
+        transition: transform ease-in 0.1s;
+    }
+
+    .dont-scroll {
+        overflow: hidden;
+    }
+
+    .nav-list li, .dropdown-container {
+        margin-bottom: 5vh;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        display: block;
+    }
+
+    .dropdown-menu li{
+        height: 1rem;
+        overflow: hidden;
+    }
+
+    .dropdown-menu li a{
+        margin: 0;
+    }
+}
