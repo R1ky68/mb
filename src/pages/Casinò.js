@@ -98,18 +98,18 @@ export default function Casino() {
           { metodo === "Roulette" ? <p>Rating: 94%</p> : <p>Rating: 97%</p> }
           <div className='istruzioni-casino'>
             { metodo === "Roulette" ?
-              <RiepilogoRoulette copertura={copertura} puntata={puntata_roulette} nero={nero2} zero={zero2} />
+              <RiepilogoRoulette copertura={copertura} puntata={puntata_roulette} nero={nero2} zero={zero2.toFixed(2)} />
               :
-              <RiepilogoBaccarat puntata={puntata_baccarat} banco={banco2} />
+              <RiepilogoBaccarat puntata={puntata_baccarat} banco={banco2.toFixed(2)} />
             }
           </div>
           {g_minimo >= 0 ? <h3 style={{color: "#4e9c4f"}}>Il guadagno minimo sarà: {g_minimo.toFixed(2)}€</h3> : <h3 style={{color: "#db6e6e"}}>Il guadagno minimo sarà: {g_minimo.toFixed(2)}€</h3>}
         </div>
         <hr />
         { metodo === "Roulette" ? 
-          <TabellaRoulette puntata={puntata_roulette} nero={nero2} zero={zero2} g_rosso={g_rosso} g_nero={g_nero} g_zero={g_zero} copertura={copertura} />
+          <TabellaRoulette puntata={puntata_roulette} nero={nero2} zero={zero2.toFixed(2)} g_rosso={g_rosso.toFixed(2)} g_nero={g_nero.toFixed(2)} g_zero={g_zero.toFixed(2)} copertura={copertura} />
           :
-          <TabellaBaccarat puntata={puntata_baccarat} banco={banco2} g_banco={g_banco} caso_giocatore={caso_giocatore2} caso_banco={caso_banco2} />
+          <TabellaBaccarat puntata={puntata_baccarat} banco={banco2.toFixed(2)} g_banco={g_banco.toFixed(2)} caso_giocatore={caso_giocatore2.toFixed(2)} caso_banco={caso_banco2.toFixed(2)} />
         }
       </div>
     </DivContainer>
@@ -138,9 +138,9 @@ const Select = styled.select`
 const RiepilogoRoulette = (props) => (
   props.copertura === "3 (Rosso/Nero)" ?
     <>
-      <p>Punta {props.puntata.toFixed(2)}€ sul Rosso</p>
-      <p>Punta {props.nero.toFixed(2)}€ sul Nero</p>
-      <p>Punta {props.zero.toFixed(2)}€ sullo Zero</p>
+      <p>Punta {props.puntata}€ sul Rosso</p>
+      <p>Punta {props.nero}€ sul Nero</p>
+      <p>Punta {props.zero}€ sullo Zero</p>
     </>
   :
     <>
@@ -153,8 +153,8 @@ const RiepilogoRoulette = (props) => (
 
 const RiepilogoBaccarat = (props) => (
   <>
-    <p>Punta {props.puntata.toFixed(2)}€ sul Giocatore</p>
-    <p>Punta {props.banco.toFixed(2)}€ sul Banco</p>
+    <p>Punta {props.puntata}€ sul Giocatore</p>
+    <p>Punta {props.banco}€ sul Banco</p>
   </>
 )
 
@@ -171,35 +171,35 @@ const TabellaRoulette = (props) => (
       </tr>
       <tr>
         <td>Se esce Rosso:</td>
-        <td>+ {props.puntata.toFixed(2)} €</td>
-        <td>- {props.nero.toFixed(2)} €</td>
-        <td>- {props.zero.toFixed(2)} €</td>
+        <td>+ {props.puntata} €</td>
+        <td>- {props.nero} €</td>
+        <td>- {props.zero} €</td>
         <td>=</td>
         {props.g_rosso >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_rosso.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_rosso.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_rosso} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_rosso} €</td>
         }
       </tr>
       <tr>
         <td>Se esce Nero:</td>
-        <td>- {props.puntata.toFixed(2)} €</td>
-        <td>+ {props.nero.toFixed(2)} €</td>
-        <td>- {props.zero.toFixed(2)} €</td>
+        <td>- {props.puntata} €</td>
+        <td>+ {props.nero} €</td>
+        <td>- {props.zero} €</td>
         <td>=</td>
         {props.g_nero >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_nero.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_nero.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_nero} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_nero} €</td>
         }
       </tr>
       <tr>
         <td>Se esce Zero:</td>
-        <td>- {props.puntata.toFixed(2)} €</td>
-        <td>- {props.nero.toFixed(2)} €</td>
-        <td>+ {props.zero.toFixed(2) * 35} €</td>
+        <td>- {props.puntata} €</td>
+        <td>- {props.nero} €</td>
+        <td>+ {props.zero * 35} €</td>
         <td>=</td>
         {props.g_zero >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_zero.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_zero} €</td>
         }
       </tr>
     </table>
@@ -216,14 +216,14 @@ const TabellaRoulette = (props) => (
       </tr>
       <tr>
         <td>Se esce 1-12:</td>
-        <td>+ {props.importo.toFixed(2) * 3} €</td>
-        <td>- {props.importo.toFixed(2)} €</td>
-        <td>- {props.importo.toFixed(2)} €</td>
-        <td>- {props.zero.toFixed(2)} €</td>
+        <td>+ {props.importo * 3} €</td>
+        <td>- {props.importo} €</td>
+        <td>- {props.importo} €</td>
+        <td>- {props.zero} €</td>
         <td>=</td>
         {props.g_rosso >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_rosso.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_rosso.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_rosso} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_rosso} €</td>
         }
       </tr>
       <tr>
@@ -234,8 +234,8 @@ const TabellaRoulette = (props) => (
         <td>-  €</td>
         <td>=</td>
         {props.g_nero >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+{props.g_nero.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_nero.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+{props.g_nero} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_nero} €</td>
         }
       </tr>
       <tr>
@@ -246,8 +246,8 @@ const TabellaRoulette = (props) => (
         <td>-  €</td>
         <td>=</td>
         {props.g_zero >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_zero.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_zero} €</td>
         }
       </tr>
       <tr>
@@ -258,8 +258,8 @@ const TabellaRoulette = (props) => (
         <td>+  €</td>
         <td>=</td>
         {props.g_zero >= 0 ? 
-          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero.toFixed(2)} €</td> :
-          <td style={{ color: "#db6e6e" }}>{props.g_zero.toFixed(2)} €</td>
+          <td style={{ color: "#4e9c4f" }}>+ {props.g_zero} €</td> :
+          <td style={{ color: "#db6e6e" }}>{props.g_zero} €</td>
         }
       </tr>
     </table>
@@ -276,22 +276,22 @@ const TabellaBaccarat = (props) => (
     </tr>
     <tr>
       <td>Se vince il Giocatore</td>
-      <td>+ {props.puntata.toFixed(2)} €</td>
-      <td>- {props.banco.toFixed(2)} €</td>
+      <td>+ {props.puntata} €</td>
+      <td>- {props.banco} €</td>
       <td>=</td>
       {props.caso_giocatore >= 0 ? 
-        <td style={{ color: "#4e9c4f" }}>+ {props.caso_giocatore.toFixed(2)} €</td> :
-        <td style={{ color: "#db6e6e" }}>{props.caso_giocatore.toFixed(2)} €</td>
+        <td style={{ color: "#4e9c4f" }}>+ {props.caso_giocatore} €</td> :
+        <td style={{ color: "#db6e6e" }}>{props.caso_giocatore} €</td>
       }
     </tr>
     <tr>
       <td>Se vince il Banco</td>
-      <td>- {props.puntata.toFixed(2)} €</td>
-      <td>+ {props.g_banco.toFixed(2)} €</td>
+      <td>- {props.puntata} €</td>
+      <td>+ {props.g_banco} €</td>
       <td>=</td>
       {props.caso_banco >= 0 ? 
-        <td style={{ color: "#4e9c4f" }}>+ {props.caso_banco.toFixed(2)} €</td> :
-        <td style={{ color: "#db6e6e" }}>{props.caso_banco.toFixed(2)} €</td>
+        <td style={{ color: "#4e9c4f" }}>+ {props.caso_banco} €</td> :
+        <td style={{ color: "#db6e6e" }}>{props.caso_banco} €</td>
       }
     </tr>
     <tr>
