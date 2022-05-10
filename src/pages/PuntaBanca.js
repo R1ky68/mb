@@ -86,8 +86,8 @@ export default function PuntaBanca() {
                             <InputContainer divClass="nuova-quota" text="Nuova Quota" saveValues={(e) => { setNuovaQuota(e.target.value) }} inputName="nuova-quota" />
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "20px" }}>
-                            <p>Banca: {nuova_bancata.toFixed(2)}</p>
-                            <p>Responsabilità: {nuova_responsabilità.toFixed(2)}</p>
+                            <p>Banca: {nuova_bancata}</p>
+                            <p>Responsabilità: {nuova_responsabilità}</p>
                         </div>
                     </>
                     :
@@ -109,22 +109,22 @@ const Tabella = (props) => (
         </tr>
         <tr>
             <td>Se vinci la puntata sul Book:</td>
-            <td>+ {props.g_book.toFixed(2)} €</td>
-            <td>- {props.responsabilità.toFixed(2)} €</td>
+            <td>+ {props.g_book} €</td>
+            <td>- {props.responsabilità} €</td>
             <td>=</td>
             {props.p_book >= 0 ? 
-                <td style={{ color: "#4e9c4f" }}>+ {props.p_book.toFixed(2)} €</td> :
-                <td style={{ color: "#db6e6e" }}>{props.p_book.toFixed(2)} €</td>
+                <td style={{ color: "#4e9c4f" }}>+ {props.p_book} €</td> :
+                <td style={{ color: "#db6e6e" }}>{props.p_book} €</td>
             }
         </tr>
         <tr>
             <td>Se vinci la bancata sull'Exchange:</td>
-            <td>- {props.puntata.toFixed(2)} €</td>
-            <td>+ {props.g_exchange.toFixed(2)} €</td>
+            <td>- {props.puntata} €</td>
+            <td>+ {props.g_exchange} €</td>
             <td>=</td>
             {props.p_exchange >= 0 ? 
-                <td style={{ color: "#4e9c4f" }}>+ {props.p_exchange.toFixed(2)} €</td> :
-                <td style={{ color: "#db6e6e" }}>{props.p_exchange.toFixed(2)} €</td>
+                <td style={{ color: "#4e9c4f" }}>+ {props.p_exchange} €</td> :
+                <td style={{ color: "#db6e6e" }}>{props.p_exchange} €</td>
             }
         </tr>
     </table>
@@ -133,15 +133,15 @@ const Tabella = (props) => (
 const Riepilogo = (props) => (
     <div className="riepilogo">
         <h3>Riepilogo</h3>
-        <p>Punta {props.puntata.toFixed(2)}€ a quota {props.q_punta} sul Book</p>
+        <p>Punta {props.puntata}€ a quota {props.q_punta} sul Book</p>
         {window.location.pathname === '/punta-banca' ? 
         <>
-            <p>Banca {props.bancata.toFixed(2)}€ a quota {props.q_banca} su Betfair</p>
-            <p>con Responsabilità di {props.responsabilità.toFixed(2)}€</p>
+            <p>Banca {props.bancata}€ a quota {props.q_banca} su Betfair</p>
+            <p>con Responsabilità di {props.responsabilità}€</p>
         </> : 
-            <p>Punta {props.bancata.toFixed(2)}€ a quota {props.q_banca} sul Book B</p>
+            <p>Punta {props.bancata}€ a quota {props.q_banca} sul Book B</p>
         }
-        {props.g_minimo >= 0 ? <h3 style={{color: "#4e9c4f"}}>Il guadagno minimo sarà: {props.g_minimo.toFixed(2)}€</h3> : <h3 style={{color: "#db6e6e"}}>Il guadagno minimo sarà: {props.g_minimo.toFixed(2)}€</h3>}
+        {props.g_minimo >= 0 ? <h3 style={{color: "#4e9c4f"}}>Il guadagno minimo sarà: {props.g_minimo}€</h3> : <h3 style={{color: "#db6e6e"}}>Il guadagno minimo sarà: {props.g_minimo}€</h3>}
     </div>
 );
 

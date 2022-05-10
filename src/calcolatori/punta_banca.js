@@ -10,7 +10,7 @@ function puntaBanca(q1, q2, importo_book) {
 
     while (Math.abs(profitto_book - profitto_exchange) < 0 || Math.abs(profitto_book - profitto_exchange) > 0.03) {
         Responsabilità = Number(((Bancata * q2) - Bancata).toFixed(2));
-        guadagno_exchange = Number((Bancata - ((Bancata * 5) / 100)).toFixed(2));
+        guadagno_exchange = Number((Bancata - ((Bancata * 4.5) / 100)).toFixed(2));
 
         profitto_book = Number((guadagno_book - Responsabilità).toFixed(2));
         profitto_exchange = Number((guadagno_exchange - importo_book).toFixed(2));
